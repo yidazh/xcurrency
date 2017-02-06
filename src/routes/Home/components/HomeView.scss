@@ -1,5 +1,82 @@
-.duck {
-  display: block;
-  width: 120px;
-  margin: 1.5rem auto;
+.wrapper {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+}
+
+.currency-wrapper,  {
+  display: flex;
+  flex-direction: column;
+  flex: 5;
+}
+
+.currency {
+  padding: 0 20px;
+  flex: 1;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, .1);
+
+  &.principal {
+    flex: 1.2;
+  }
+
+  &::after {
+    content: '';
+    width: 0;
+    height: 0;
+    display: table;
+    clear: both;
+  }
+
+  .item {
+    height: 100%;
+  }
+  .item::before {
+    content: '';
+    width: 0;
+    height: 100%;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .item > div {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .flag, .code {
+    float: left;
+  }
+  .amount-name {
+    float: right;
+    text-align: right;
+  }
+
+  .amount {
+    font-size: 20px;
+    color: rgba(0,0,0, .4);
+  }
+  .name {
+    font-size: 10px;
+  }
+  &.principal .amount::after {
+    content: '|';
+    position: relative;
+    top: -1px;
+    display: inline-block;
+    width: 6px;
+    color: #56ce8f;
+    animation: blink 1.2s linear alternate infinite;
+  }
+}
+
+.calculator-wrapper {
+  flex: 4;
+}
+
+@keyframes blink {
+  0%, 80% {
+    opacity: 1;
+  }
+  45% {
+    opacity: 0;
+  }
 }

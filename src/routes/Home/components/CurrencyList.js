@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import CurrencyView from './CurrencyView.js'
 
 class CurrencyList extends Component {
   constructor(props) {
@@ -6,10 +7,11 @@ class CurrencyList extends Component {
   }
 
   render() {
+    const { dispatch } = this.props
     return (
-      <ul>
+      <ul className="currency-wrapper">
         {this.props.currencies.map(currency =>
-          <li key={currency.code}>{currency.name} {currency.amount}</li>
+          <CurrencyView key={currency.code} currency={currency} dispatch={dispatch}></CurrencyView>
         )}
       </ul>
     )
